@@ -18,9 +18,9 @@ def page1():
     total=[0.0,0.0,0.0,0.0]
     if request.method  == 'POST':
         for i in range(5):
-            session['total']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['total']
-        session.pop('total', None)
+            session['n']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=float(session['n'])
+        session.pop('n', None)
         return redirect(url_for("page2",total=total))
     
     else:
@@ -33,7 +33,7 @@ def page2():
     if request.method  == 'POST':
         for i in range(5,10):
             session['n']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['n']
+            total[keyword[i]]+=float(session['n'])
         session.pop('total', None)
         session.pop('n', None)
         return redirect(url_for("page3",total=total))
@@ -48,7 +48,7 @@ def page3():
     if request.method  == 'POST':
         for i in range(10,15):
             session['n']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['n']
+            total[keyword[i]]+=float(session['n'])
         session.pop('total', None)
         session.pop('n', None)
         return redirect(url_for("page4",total=total))
@@ -63,7 +63,7 @@ def page4():
     if request.method  == 'POST':
         for i in range(15,20):
             session['n']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['n']
+            total[keyword[i]]+=float(session['n'])
         for i in range(4):
             style[i]=round(total[i]/(float(num[i]))) 
         session.pop('total', None)
