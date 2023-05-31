@@ -8,17 +8,18 @@ import threading
 questions, keyword, total, style, num,Result_List, Dataframe_List=INIT()
 app = Flask(__name__)
 app.secret_key = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(10))
-session['total']=total
 
 @app.route('/')
 def home():
     return render_template('home.html')
-
+    
 @app.route('/page1', methods=['GET', 'POST'])
 def page1():
     if request.method  == 'POST':
         for i in range(5):
-            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
+            session['total']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['total']
+        session.pop('total', None)
         return redirect(url_for("page2"))
     
     else:
@@ -28,7 +29,9 @@ def page1():
 def page2():
     if request.method  == 'POST':
         for i in range(5,10):
-            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
+            session['total']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['total']
+        session.pop('total', None)
         return redirect(url_for("page3"))
     
     else:
@@ -38,7 +41,9 @@ def page2():
 def page3():
     if request.method  == 'POST':
         for i in range(10,15):
-            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
+            session['total']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['total']
+        session.pop('total', None)
         return redirect(url_for("page4"))
     
     else:
@@ -48,7 +53,8 @@ def page3():
 def page4():
     if request.method  == 'POST':
         for i in range(15,20):
-            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
+            session['total']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['total']
 
         for i in range(4):
             style[i]=round(session['total'][i]/(float(num[i]))) 
