@@ -4,8 +4,8 @@ import pandas as pd
 from datetime import date
 import numpy as np
 def INIT():
-    cursor1 = resultlist(".venv/static/json/questions.json")
-    cursor2=resultlist(".venv/static/json/type.json")
+    cursor1 = resultlist("static/json/questions.json")
+    cursor2=resultlist("static/json/type.json")
 
     questions=[]
     keyword=[]
@@ -42,7 +42,7 @@ class getdf:
     def Museum(self):
 
         # 딕셔너리들을 저장할 리스트
-        data_list = resultlist(".venv/static/json/museum.json")
+        data_list = resultlist("static/json/museum.json")
 
         # 각 문서를 딕셔너리로 저장하고 리스트에 추가
         title = [item["시설명"] for item in data_list]

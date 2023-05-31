@@ -5,14 +5,14 @@ from func import INIT,getdf,RecommandList,decimal_to_binary
 import threading
 
 questions, keyword, total, style, num,Result_List, Dataframe_List=INIT()
-application = Flask(__name__)
+app = Flask(__name__)
 
 
-@application.route('/')
+@app.route('/')
 def home():
     return render_template('home.html')
 
-@application.route('/page1', methods=['GET', 'POST'])
+@app.route('/page1', methods=['GET', 'POST'])
 def page1():
     if request.method  == 'POST':
         for i in range(5):
@@ -22,7 +22,7 @@ def page1():
     else:
         return render_template('page1.html',questions=questions)
 
-@application.route('/page2', methods=['GET', 'POST'])
+@app.route('/page2', methods=['GET', 'POST'])
 def page2():
     if request.method  == 'POST':
         for i in range(5,10):
@@ -32,7 +32,7 @@ def page2():
     else:
         return render_template('page2.html',questions=questions)
 
-@application.route('/page3', methods=['GET', 'POST'])
+@app.route('/page3', methods=['GET', 'POST'])
 def page3():
     if request.method  == 'POST':
         for i in range(10,15):
@@ -42,7 +42,7 @@ def page3():
     else:
         return render_template('page3.html',questions=questions)
 
-@application.route('/page4', methods=['GET', 'POST'])
+@app.route('/page4', methods=['GET', 'POST'])
 def page4():
     if request.method  == 'POST':
         for i in range(15,20):
@@ -56,13 +56,13 @@ def page4():
     else:
         return render_template('page4.html',questions=questions)
 
-@application.route('/waiting')
+@app.route('/waiting')
 def waiting():
     thread = threading.Thread(target=set_df)
     thread.start()
     return render_template('waiting.html')
 
-@application.route('/result', methods=['GET', 'POST'])
+@app.route('/result', methods=['GET', 'POST'])
 def result():
     global Result_type 
     global style
@@ -78,14 +78,14 @@ def result():
     else:
         return render_template('result.html',imagename="img/"+Result_type['name']+".png",name=Result_type['name'],explain1=Result_type["explain1"],explain2=Result_type["explain2"],explain3=Result_type["explain3"],List=Random_Recommand_List, base_url = "https://www.google.com/search?q=")
 
-@application.route('/AdditionalList',methods=['GET', 'POST'])
+@app.route('/AdditionalList',methods=['GET', 'POST'])
 def AdditionalList():
      if request.method == 'POST':
          return redirect(url_for("result"))
      else:
         return render_template('AdditionalList.html',name=Result_type['name'],count=len(All_Recommand_List),List=All_Recommand_List,base_url="https://www.google.com/search?q=")
 
-@application.route('/Allhachi', methods=['GET', 'POST'])
+@app.route('/Allhachi', methods=['GET', 'POST'])
 def Allhachi():
     global style
     if request.method == 'POST':
@@ -121,4 +121,4 @@ def set_list():
     return list
 
 if __name__ == '__main__':
-    application.run()
+    app.run()
