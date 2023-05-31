@@ -83,7 +83,7 @@ class getdf:
         return df
 
     def MountainPark(self):
-        url = "http://openapi.seoul.go.kr:8088/79694f754779696334396d42516547/json/SebcParkTourKor/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/SebcParkTourKor/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -119,7 +119,7 @@ class getdf:
         return df
 
     def Zoo_Botanical_RecreationForest(self):
-        url = "http://openapi.seoul.go.kr:8088/5a5447414a79696333316b48474955/json/SebcPleasureGroundKor1/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/SebcPleasureGroundKor1/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -154,7 +154,7 @@ class getdf:
         return df
 
     def TraditionalMarkets(self): 
-        url = "http://openAPI.seoul.go.kr:8088/71456d506f7969633537464f437359/json/ListTraditionalMarket/1/1000/"
+        url = "http://openAPI.seoul.go.kr:8088/636967666c79696333386847776453/json/ListTraditionalMarket/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -187,7 +187,7 @@ class getdf:
         return df
 
     def CulturalHeritage(self): 
-        url = "http://openapi.seoul.go.kr:8088/45734c44637969633931477751635a/json/SebcHistoricSiteKor/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/SebcHistoricSiteKor/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -213,7 +213,7 @@ class getdf:
         return df
 
     def EcologicalCulturalStreet(self):
-        url = "http://openapi.seoul.go.kr:8088/4c7949567979696336384641735543/json/walkSaengtaeInfo/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/walkSaengtaeInfo/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -245,7 +245,7 @@ class getdf:
         return df
 
     def SightseeingStreet(self):
-        url = "http://openapi.seoul.go.kr:8088/52684e66487969633630566d555649/json/SebcTourStreetKor/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/SebcTourStreetKor/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -277,7 +277,7 @@ class getdf:
         return df
 
     def LibraryLecture(self):
-        url = "http://openapi.seoul.go.kr:8088/694b6c78417969633536497a625352/json/SeoulLibraryLectureInfo/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/SeoulLibraryLectureInfo/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -323,7 +323,7 @@ class getdf:
         return df
 
     def CulturalSpace(self):
-        url = "http://openapi.seoul.go.kr:8088/45734c44637969633931477751635a/json/culturalSpaceInfo/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/culturalSpaceInfo/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -365,7 +365,7 @@ class getdf:
         return df
 
     def FutureHeritage(self):
-        url = "http://openapi.seoul.go.kr:8088/6d68534b6c79696334324c7259594b/json/futureCourseInfo/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/futureCourseInfo/1/1000/"
 
         response = requests.get(url)
         data = response.json()
@@ -404,7 +404,7 @@ class getdf:
         return df
 
     def CulturalEvent(self):
-        url = "http://openapi.seoul.go.kr:8088/63516a735279696335384377507659/json/culturalEventInfo/1/1000/"
+        url = "http://openapi.seoul.go.kr:8088/636967666c79696333386847776453/json/culturalEventInfo/1/1000/"
 
         response = requests.get(url)
         data = response.json()

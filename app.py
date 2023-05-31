@@ -1,11 +1,13 @@
-from flask import Flask, render_template, redirect,request,url_for
+from flask import Flask,session, render_template, redirect,request,url_for
 import random
 import threading
+import string
 from func import INIT,getdf,RecommandList,decimal_to_binary
 import threading
 
-questions, keyword, total, style, num,Result_List, Dataframe_List=INIT()
+questions, keyword, session['total'], style, num,Result_List, Dataframe_List=INIT()
 app = Flask(__name__)
+app.secret_key = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(10))
 
 
 @app.route('/')
@@ -16,7 +18,7 @@ def home():
 def page1():
     if request.method  == 'POST':
         for i in range(5):
-            total[keyword[i]]+=request.form.get(str(i),type=float)
+            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
         return redirect(url_for("page2"))
     
     else:
@@ -26,7 +28,7 @@ def page1():
 def page2():
     if request.method  == 'POST':
         for i in range(5,10):
-            total[keyword[i]]+=request.form.get(str(i),type=float)
+            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
         return redirect(url_for("page3"))
     
     else:
@@ -36,7 +38,7 @@ def page2():
 def page3():
     if request.method  == 'POST':
         for i in range(10,15):
-            total[keyword[i]]+=request.form.get(str(i),type=float)
+            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
         return redirect(url_for("page4"))
     
     else:
@@ -46,11 +48,11 @@ def page3():
 def page4():
     if request.method  == 'POST':
         for i in range(15,20):
-            total[keyword[i]]+=request.form.get(str(i),type=float)
+            session['total'][keyword[i]]+=request.form.get(str(i),type=float)
 
         for i in range(4):
-            style[i]=round(total[i]/(float(num[i]))) 
-
+            style[i]=round(session['total'][i]/(float(num[i]))) 
+        session.pop('total', None)
         
         return redirect(url_for("waiting"))
     else:
@@ -91,8 +93,8 @@ def AdditionalList():
 def Allhachi():
     global style
     if request.method == 'POST':
-        card_value = int(request.form.get('card_value'))
-        style=decimal_to_binary(card_value)
+        session['card_value'] = int(request.form.get('card_value'))
+        style=decimal_to_binary(session['card_value'])
         return redirect(url_for("result"))
     else:
         return render_template('Allhachi.html',list=Result_List)
