@@ -5,7 +5,7 @@ import string
 from func import INIT,getdf,RecommandList,decimal_to_binary
 import threading
 
-questions, keyword, total, style, num,Result_List, Dataframe_List=INIT()
+questions, keyword, style, num,Result_List, Dataframe_List=INIT()
 app = Flask(__name__)
 app.secret_key = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(10))
 
@@ -15,51 +15,59 @@ def home():
     
 @app.route('/page1', methods=['GET', 'POST'])
 def page1():
+    total=[0.0,0.0,0.0,0.0]
     if request.method  == 'POST':
         for i in range(5):
             session['total']=request.form.get(str(i),type=float)
             total[keyword[i]]+=session['total']
         session.pop('total', None)
-        return redirect(url_for("page2"))
+        return redirect(url_for("page2"),total=total)
     
     else:
         return render_template('page1.html',questions=questions)
 
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
+    session['total']= request.args.get('total')
+    total=session['total']
     if request.method  == 'POST':
         for i in range(5,10):
-            session['total']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['total']
+            session['n']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['n']
         session.pop('total', None)
-        return redirect(url_for("page3"))
+        session.pop('n', None)
+        return redirect(url_for("page3"),total=total)
     
     else:
         return render_template('page2.html',questions=questions)
 
 @app.route('/page3', methods=['GET', 'POST'])
 def page3():
+    session['total']= request.args.get('total')
+    total=session['total']
     if request.method  == 'POST':
         for i in range(10,15):
-            session['total']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['total']
+            session['n']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['n']
         session.pop('total', None)
-        return redirect(url_for("page4"))
+        session.pop('n', None)
+        return redirect(url_for("page4"),total=total)
     
     else:
         return render_template('page3.html',questions=questions)
 
 @app.route('/page4', methods=['GET', 'POST'])
 def page4():
+    session['total']= request.args.get('total')
+    total=session['total']
     if request.method  == 'POST':
         for i in range(15,20):
-            session['total']=request.form.get(str(i),type=float)
-            total[keyword[i]]+=session['total']
-
+            session['n']=request.form.get(str(i),type=float)
+            total[keyword[i]]+=session['n']
         for i in range(4):
             style[i]=round(total[i]/(float(num[i]))) 
         session.pop('total', None)
-        
+        session.pop('n', None)
         return redirect(url_for("waiting"))
     else:
         return render_template('page4.html',questions=questions)

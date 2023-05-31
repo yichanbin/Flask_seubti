@@ -20,7 +20,7 @@ def INIT():
 
     for i in cursor2:
         Result_List.append(i)
-    return questions, keyword, total, style, num,Result_List,Dataframe_List
+    return questions, keyword, style, num,Result_List,Dataframe_List
 
 
 def RecommandList(df,keywordlist):
