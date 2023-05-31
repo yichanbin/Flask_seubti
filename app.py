@@ -57,7 +57,7 @@ def page4():
             total[keyword[i]]+=session['total']
 
         for i in range(4):
-            style[i]=round(session['total'][i]/(float(num[i]))) 
+            style[i]=round(total[i]/(float(num[i]))) 
         session.pop('total', None)
         
         return redirect(url_for("waiting"))
