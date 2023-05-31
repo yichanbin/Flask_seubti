@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com">
+  <meta name="author" content="Akash Bhadange">
+  <title>SEU-BTI</title>
+
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/style2.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/themify-icons.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+</head>
+  <body>
+  <nav class="navbar bg-body-tertiary navbacolor">
+    <div class="container-fluid leftzero logo navtext">
+      <img src="{{ url_for('static', filename= 'img/logo.png') }}" alt="로고" class="d-inline-block align-text-top">
+        <span class="navtext">SEU-BTI: 나의 특성에 맞는 서울 콘텐츠</span>
+       </div>
+   </nav>
+      <div>
+        <!-- Start: Header -->
+        <div class="row centered" id="home">
+          <div class="col-md-7 ">
+            <img src="{{ url_for('static', filename= 'img/4.저요-removebg-preview.png') }}" class="logo rightdiv" >
+
+            <div class="balloon">
+              <h5>다양한 해치들을 만나보세요!</h5>
+            </div>     
+          </div>
+          <br>
+          
+        </div>
+
+        <!-- End: Header -->
+      </div>
+
+
+      <div class="resul">
+        <h1 class="mainh1">16가지 성격의 해치들을 만나보세요</h1>
+      </div>
+      <hr>
+      <form id="cardForm" action="/Allhachi" method="post">
+        <input type="hidden" name="card_value" id="cardValueInput">
+        {% for i in range(4) %}
+        <div class="row centered" id="home">
+          <div class="resultlist card-container2">
+            {% for j in range(4) %}
+            {% set index=i*4+j %}
+            <div class="cardlist" onclick="submitForm('{{index}}')">
+              <div class="cardlist-body">
+                <div>
+                  <img src="{{ url_for('static', filename='img/' + list[index]['name'] + '.png') }}" class="logo rightdiv" >
+                </div>
+                <div> 
+                  <p>{{list[index]['name']}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </form>
+      <!-- 이거 네 개 반복 맞죵?-->
+
+
+
+
+
+
+
+        <div class="container">
+          <!-- Start: Desc -->
+          <div class="row me-row content-ct">
+            <hr>
+            <div class="tit">
+              <h2 class="row-title">SEU-BTI</h2><br>
+            </div>
+  
+            <div class="col-md-4 feature">
+              <i class="fa-solid fa-envelope"></i>
+              <h3> 문의처</h3>
+              <p>seu.bti@gmail.com</p>
+            </div>
+  
+            <div class="col-md-4 feature">
+              <i class="fa-solid fa-paw"></i>
+              <h3>해치 </h3>
+              <a href="https://www.seoul.go.kr/seoul/symbol.do" style="color: #9b6c36;
+              text-decoration: underline;"target="_blank">서울의 상징 해치 보러가기</a>
+            </div>
+  
+            <div class="col-md-4 feature">
+              <i class="fa-solid fa-database"></i>
+              <h3>컨텐츠 </h3>
+              <a href="https://data.seoul.go.kr/" style="color: #9b6c36;
+              text-decoration: underline;"target="_blank">열린데이터광장 바로가기</a>
+            </div>
+  
+          </div>
+        </div>
+        <!-- End: Desc -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function submitForm(cardValue) {
+            $('#cardValueInput').val(cardValue);
+            $('#cardForm').submit();
+        }
+    </script>
+    </body>
+</html>

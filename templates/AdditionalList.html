@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko"  >
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com">
+  <meta name="author" content="Akash Bhadange">
+  </style>
+  <title>SEU-BTI</title>
+
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename= 'css/style2.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename= 'css/themify-icons.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+</head>
+  <body>
+    <div style="overflow:scroll height=100%"; >
+    <nav class="navbar bg-body-tertiary navbacolor">
+      <div class="container-fluid leftzero logo navtext">
+            <img src="{{ url_for('static', filename= 'img/logo.png') }}" alt="로고" class="d-inline-block align-text-top">
+            <span>SEU-BTI: 나의 특성에 맞는 서울 콘텐츠</span>
+        </div>
+      </nav>
+   <!-- Start: Header -->
+   <div class="row centered" id="home">
+    <div class="col-md-7 resulttext">
+      <img src="{{ url_for('static', filename= 'img/여깃습니다오죠사마.png') }}" class="logo rightdiv" >
+
+      <div class="balloon">
+        <h5>아래의 목록을 참고해주세요. .</h5>
+      </div>     
+    </div>
+    <br>
+  </div>
+  <!-- End: Header -->
+    <div class="con" >
+      <div class="resul">
+          <h1 class="mainh1">당신은 {{name}}!!</h1>
+          <h3>그에 대한&nbsp;<span style="color: rgb(53, 146, 53);">{{count}}</span>개의 추천 목록이에요!</h3>
+        </div>
+          {% for item in List %}
+          {% set search_url = base_url ~ item[0] %}
+              <div class="addcard" onclick="redirectToLink('{{search_url}}')">
+                <div class="card-body">
+                  <h1 class="title" style="text-align: center;" >{{item[0]}}</h1>
+                  <h2>{{item[1]}}</h2>
+                </div>
+              </div>
+          {% endfor %}
+        <form method="POST" action="/AdditionalList">
+          <div class="testnextpage centered">
+            <button type="submit" name="button" class="btn btn-back btn-green centered" id="btnback"> <span class="ti-arrow-left"></span> &nbsp; 뒤로가기 
+          </div>
+        </form>   
+    </div>
+    </div>
+    <div class="container">
+      <!-- Start: Desc -->
+      <div class="row me-row content-ct">
+        <hr>
+        <div class="tit">
+          <h2 class="row-title">SEU-BTI</h2><br>
+        </div>
+
+        <div class="col-md-4 feature">
+          <i class="fa-solid fa-envelope"></i>
+          <h3> 문의처</h3>
+          <p>seu.bti@gmail.com</p>
+        </div>
+
+        <div class="col-md-4 feature">
+          <i class="fa-solid fa-paw"></i>
+          <h3>해치 </h3>
+          <a href="https://www.seoul.go.kr/seoul/symbol.do" style="color: #9b6c36;
+          text-decoration: underline;"target="_blank">서울의 상징 해치 보러가기</a>
+        </div>
+
+        <div class="col-md-4 feature">
+          <i class="fa-solid fa-database"></i>
+          <h3>컨텐츠 </h3>
+          <a href="https://data.seoul.go.kr/" style="color: #9b6c36;
+          text-decoration: underline;"target="_blank">열린데이터광장 바로가기</a>
+        </div>
+
+      </div>
+    </div>
+    <!-- End: Desc -->
+    <script>
+    function redirectToLink(url) {
+      window.open(url, "_blank");
+    }
+    window.addEventListener('scroll', function() {
+      var button = document.getElementById('btnback');
+      var buttonPosition = button.getBoundingClientRect().top;
+      var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+      if (scrollPosition >= 800) {
+        button.classList.add('btnfixed');
+      } 
+      else {
+        button.classList.remove('btnfixed');
+      }
+    });
+  </script>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com">
+  <meta name="author" content="Akash Bhadange">
+  <title>SEU-BTI</title>
+
+  <!-- Bootstrap -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/style2.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/themify-icons.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </head>
+    <body>
+      <div class="container-fluid ">
+        <!-- Start: Header -->
+        <div class="row hero-header centered" id="home">
+          <div class="col-md-7 maintex">
+            <img src="{{ url_for('static', filename= 'img/logo.png') }}" class="logo centered" >
+            <h1 class="mainh1">SEU-BTI: 나의 특성에 맞는 서울 콘텐츠</h1>
+            <br>
+            <h3 style="text-align: center;">혹시 서울이 처음이신가요? 아님 혹시 심심해서 서울 어딘가로 훌쩍 떠나버리고 싶으신가요?<br><br>
+              SEU-BTI로 맞춤형 서울 장소를 추천받아보세요!
+              박물관부터 축제행사까지, 
+              <br><br>서울에 관한 거의 모든 것을 맞춤 추천 받을 수 있는 SEU-BTI</h3>
+            <h5>이 웹페이지는 서울열린데이터광장의 데이터를 사용합니다</h5>
+
+            <form action="{{ url_for('page1') }}" method="get" class="centered">
+              <button type="submit" class="btn btn-lg btn-green centered">검사하러 가기&nbsp;<span class="ti-arrow-right"></span></button>
+            </form>
+          </div>
+          <!-- rocket 
+          <div class="col-md-5 hidden-xs">
+            <img src="img/rocket.png" class="rocket animated bounce">
+          </div>
+           rocket -->
+        </div>
+        <!-- End: Header -->
+      </div>
+        <div class="container">
+          <!-- Start: Desc -->
+          <div class="row me-row content-ct">
+            <hr>
+            <div class="tit">
+              <h2 class="row-title">SEU-BTI</h2><br>
+            </div>
+  
+            <div class="col-md-4 feature">
+              <i class="fa-solid fa-envelope"></i>
+              <h3> 문의처</h3>
+              <p>seu.bti@gmail.com</p>
+            </div>
+  
+            <div class="col-md-4 feature">
+              <i class="fa-solid fa-paw"></i>
+              <h3>해치 </h3>
+              <a href="https://www.seoul.go.kr/seoul/symbol.do" style="color: #9b6c36;
+              text-decoration: underline;"target="_blank">서울의 상징 해치 보러가기</a>
+            </div>
+  
+            <div class="col-md-4 feature">
+              <i class="fa-solid fa-database"></i>
+              <h3>컨텐츠 </h3>
+              <a href="https://data.seoul.go.kr/" style="color: #9b6c36;
+              text-decoration: underline;"target="_blank">열린데이터광장 바로가기</a>
+            </div>
+  
+          </div>
+        </div>
+        <!-- End: Desc -->
+
+    </body>
+    </html>

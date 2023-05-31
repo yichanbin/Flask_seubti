@@ -1,0 +1,81 @@
+[{
+  "question": "영화를 보는 것보다 실제로 체험하는 것을 더 좋아해?",
+  "name": 0,
+  "keyword": 0
+},{
+  "question": "사람들이 붐비는 곳을 좋아해?",
+  "name": 1,
+  "keyword": 1
+},{
+  "question": "무언가 구경하면서 깊은 생각에 잠길 수 있는 시간을 좋아해?",
+  "name": 2,
+  "keyword": 0
+},{
+  "question": "무언가를 새로 배우는 일은 어때?",
+  "name": 3,
+  "keyword": 3
+},{
+  "question": "평화로운 공간에서 책을 읽거나 그림을 그리는 것을 즐겨?",
+  "name": 4,
+  "keyword": 1
+},{
+  "question": "이곳저곳 바깥을 돌아다니는 것을 좋아해?",
+  "name": 5,
+  "keyword": 2
+},{
+  "question": "다양한 감각을 경험하는 걸 좋아해?",
+  "name": 6,
+  "keyword": 0
+},{
+  "question": "휴식을 취하며 마음의 안정을 찾는 시간이 주어진다면 어떨 것 같아?",
+  "name": 7,
+  "keyword": 0
+},{
+  "question": "실내공간에서 시간을 보내는 건 어때?",
+  "name": 8,
+  "keyword": 2
+},{
+  "question": "자기개발에 관심이 많아?",
+  "name": 9,
+  "keyword": 3
+},{
+  "question": "많은 사람들과 이야기하기보다는 친구 몇몇과 조용히 대화하는 것을 좋아해?",
+  "name": 10,
+  "keyword": 1
+},{
+  "question": "주변 환경을 몸으로 직접 느끼는 건 어때?",
+  "name": 11,
+  "keyword": 0
+},{
+  "question": "평소 연예인에 대해 이야기하기를 좋아해?",
+  "name": 12,
+  "keyword": 3
+},{
+  "question": "갑자기 파티장으로 순간이동되면 어떨 것 같아?",
+  "name": 13,
+  "keyword": 1
+},{
+  "question": "운동을 좋아해?",
+  "name": 14,
+  "keyword": 0
+},{
+  "question": "누군가 모르는 분야에 대해 설명해준다면 어때?",
+  "name": 15,
+  "keyword": 3
+},{
+  "question": "그 날의 날씨와 공기를 만끽하기를 좋아해?",
+  "name": 16,
+  "keyword": 2
+},{
+  "question": "영화를 보고 의미를 해석하기보다 가볍게 보는 것을 더 좋아해?",
+  "name": 17,
+  "keyword": 3
+},{
+  "question": "몸을 움직이는 것보다 느긋하고 여유로운 활동이 더 좋아?",
+  "name": 18,
+  "keyword": 0
+},{
+  "question": "혼잡하고 에너지 넘치는 분위기를 좋아해?",
+  "name": 19,
+  "keyword": 1
+}]

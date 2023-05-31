@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com">
+  <meta name="author" content="Akash Bhadange">
+  <title>SEU-BTI</title>
+
+  <!-- Bootstrap -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/style2.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/themify-icons.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </head>
+    <body>
+      <nav class="navbar bg-body-tertiary navbacolor">
+        <div class="container-fluid leftzero logo navtext">
+              <img src="{{ url_for('static', filename= 'img/logo.png') }}" alt="로고" class="d-inline-block align-text-top">
+              <span>SEU-BTI: 나의 특성에 맞는 서울 콘텐츠</span>
+          </div>
+        </nav>
+        <h4 style="text-align: center;">주의! 뒤로가기 버튼을 누르면 값이 제대로 전달되지 않을 수 있으니<br> 신중하게 선택하고 다음페이지로 넘어가세요!</h4>
+      <form method="POST">
+      <div class="container-fluid ">
+
+        <!-- Start: Header -->
+        <div class="qna" >
+          <h2 class="centered">{{questions[5]}}</h2>
+          <div class="centered ">
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.안돼-removebg-preview.png') }}" alt="로고" class="nohachi">
+              <span class="image-text">별로야~</span>
+            </div>
+
+            <label for="answer0.1" class="answer-button radio-1">
+              <input type="radio" name="5" value="0" id="answer0.1">
+            </label>
+
+            <label for="answer0.2" class="answer-button radio-2" >
+              <input type="radio" name="5" value="0.2" id="answer0.2">
+            </label>
+
+            <label for="answer0.3"class="answer-button radio-3" >
+              <input type="radio" name="5" value="0.4" id="answer0.3">
+            </label>
+
+            <label for="answer0.4"class="answer-button radio-4" >
+              <input type="radio" name="5" value="0.6" id="answer0.4">
+            </label>
+
+            <label for="answer0.5"class="answer-button radio-5" >
+              <input type="radio" name="5" value="0.8" id="answer0.5">
+            </label>
+
+            <label for="answer0.6"class="answer-button radio-6" >
+              <input type="radio" name="5" value="1.0" id="answer0.6">
+            </label>
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.부자되세요-removebg-preview.png') }}" alt="로고" class="yeshachi">
+              <span class="image-text">조아!</span>
+            </div>
+
+          </div>
+        </div>
+        <div class="qna" class="line1">
+          <h2 class="centered">{{questions[6]}}</h2>
+          <div class="centered ">
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.안돼-removebg-preview.png') }}" alt="로고" class="nohachi">
+              <span class="image-text">별로야~</span>
+            </div>
+
+            <label for="answer1.1" class="answer-button radio-1">
+              <input type="radio" name="6" value="0" id="answer1.1">
+            </label>
+
+            <label for="answer1.2" class="answer-button radio-2">
+              <input type="radio" name="6" value="0.2" id="answer1.2">
+            </label>
+
+            <label for="answer1.3"class="answer-button radio-3">
+              <input type="radio" name="6" value="0.4" id="answer1.3">
+            </label>
+
+            <label for="answer1.4"class="answer-button radio-4">
+              <input type="radio" name="6" value="0.6" id="answer1.4">
+            </label>
+
+            <label for="answer1.5"class="answer-button radio-5">
+              <input type="radio" name="6" value="0.8" id="answer1.5">
+            </label>
+
+            <label for="answer1.6"class="answer-button radio-6">
+              <input type="radio" name="6" value="1.0" id="answer1.6">
+            </label>
+
+            <div class="image-container ">
+              <img src="{{ url_for('static', filename= 'img/8.부자되세요-removebg-preview.png') }}" alt="로고" class="yeshachi">
+              <span class="image-text">조아!</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="qna" class="line2">
+          <h2 class="centered">{{questions[7]}}</h2>
+          <div class="centered ">
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.안돼-removebg-preview.png') }}" alt="로고" class="nohachi">
+              <span class="image-text">별로야~</span>
+            </div>
+
+            <label for="answer2.1" class="answer-button radio-1">
+              <input type="radio" name="7" value="1.0" id="answer2.1">
+    
+            </label>
+            <label for="answer2.2" class="answer-button radio-2">
+              <input type="radio" name="7" value="0.8" id="answer2.2">
+    
+            </label>
+            <label for="answer2.3"class="answer-button radio-3">
+              <input type="radio" name="7" value="0.6" id="answer2.3">
+    
+            </label>
+            <label for="answer2.4"class="answer-button radio-4">
+              <input type="radio" name="7" value="0.4" id="answer2.4">
+    
+            </label>
+            <label for="answer2.5"class="answer-button radio-5">
+              <input type="radio" name="7" value="0.2" id="answer2.5">
+    
+            </label>
+            <label for="answer2.6"class="answer-button radio-6">
+              <input type="radio" name="7" value="0.0" id="answer2.6">
+            </label>
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.부자되세요-removebg-preview.png') }}" alt="로고" class="yeshachi">
+              <span class="image-text">조아!</span>
+            </div>
+
+          </div>
+        </div>
+        <div class="qna" line="line3">
+          <h2 class="centered">{{questions[8]}}</h2>
+          <div class="centered ">
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.안돼-removebg-preview.png') }}" alt="로고" class="nohachi">
+              <span class="image-text">별로야~</span>
+            </div>
+
+            <label for="answer3.1" class="answer-button radio-1">
+              <input type="radio" name="8" value="1.0" id="answer3.1">
+            </label>
+
+            <label for="answer3.2" class="answer-button radio-2">
+              <input type="radio" name="8" value="0.8" id="answer3.2">
+            </label>
+
+            <label for="answer3.3"class="answer-button radio-3">
+              <input type="radio" name="8" value="0.6" id="answer3.3">
+            </label>
+
+            <label for="answer3.4"class="answer-button radio-4">
+              <input type="radio" name="8" value="0.4" id="answer3.4">
+            </label>
+
+            <label for="answer3.5"class="answer-button radio-5">
+              <input type="radio" name="8" value="0.2" id="answer3.5">
+            </label>
+
+            <label for="answer3.6"class="answer-button radio-6">
+              <input type="radio" name="8" value="0.0" id="answer3.6">
+            </label>
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.부자되세요-removebg-preview.png') }}" alt="로고" class="yeshachi">
+              <span class="image-text">조아!</span>
+            </div>
+
+          </div>
+        </div>
+        <div class="qna" class="line4">
+          <h2 class="centered">{{questions[9]}}</h2>
+          <div class="centered ">
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.안돼-removebg-preview.png') }}" alt="로고" class="nohachi">
+              <span class="image-text">별로야~</span>
+            </div>
+
+            <label for="answer4.1" class="answer-button radio-1">
+              <input type="radio" name="9" value="1.0" id="answer4.1">
+            </label>
+
+            <label for="answer4.2" class="answer-button radio-2">
+              <input type="radio" name="9" value="0.8" id="answer4.2">
+            </label>
+
+            <label for="answer4.3"class="answer-button radio-3">
+              <input type="radio" name="9" value="0.6" id="answer4.3">
+            </label>
+
+            <label for="answer4.4" class="answer-button radio-4">
+              <input type="radio" name="9" value="0.4" id="answer4.4">
+            </label>
+
+            <label for="answer4.5"class="answer-button radio-5">
+              <input type="radio" name="9" value="0.2" id="answer4.5">
+            </label>
+
+            <label for="answer4.6"class="answer-button radio-6">
+              <input type="radio" name="9" value="0.0" id="answer4.6">
+            </label>
+
+            <div class="image-container">
+              <img src="{{ url_for('static', filename= 'img/8.부자되세요-removebg-preview.png') }}" alt="로고" class="yeshachi">
+              <span class="image-text">조아!</span>
+            </div>
+
+          </div>
+        </div>
+          
+        <div class="testnextpage centered">
+            <button type="submit" class="btn btn-next btn-green centered">다음페이지로&nbsp;<span class="ti-arrow-right"></span></button>
+      </form>
+        </div>
+          <!-- rocket 
+          <div class="col-md-5 hidden-xs">
+            <img src="img/rocket.png" class="rocket animated bounce">
+          </div>
+           rocket -->
+        <!-- End: Header -->
+      </div>
+      
+      <script>
+        const names = ['5', '6', '7', '8', '9'];
+        const radios = document.querySelectorAll('input[type="radio"]');
+        const nextButton = document.querySelector('.btn-next');
+    
+        function checkRadios() {
+          let allChecked = true;
+    
+          names.forEach(name => {
+            const checkedRadios = Array.from(radios).filter(radio => radio.name === name && radio.checked);
+            if (checkedRadios.length === 0) {
+              allChecked = false;
+            }
+          });
+    
+          if (allChecked) {
+            nextButton.classList.remove('disabled');
+            nextButton.disabled = false;
+          } else {
+            nextButton.classList.add('disabled');
+            nextButton.disabled = true;
+          }
+        }
+    
+        radios.forEach(radio => {
+          radio.addEventListener('click', function() {
+            const name = this.name;
+            const checkedRadios = Array.from(radios).filter(radio => radio.name === name && radio.checked);
+            radios.forEach(radio => {
+              if (radio.name === name && !checkedRadios.includes(radio)) {
+                radio.parentNode.classList.remove('checked');
+              }
+            });
+    
+            checkRadios();
+    
+            if (this.checked) {
+              this.parentNode.classList.add('checked');
+            }
+          });
+        });
+    
+        checkRadios();
+    </script>
+    
+      
+        
+    
+
+
+    <div class="container">
+      <!-- Start: Desc -->
+      <div class="row me-row content-ct">
+        <hr>
+        <div class="tit">
+          <h2 class="row-title">SEU-BTI</h2><br>
+        </div>
+
+        <div class="col-md-4 feature">
+          <i class="fa-solid fa-envelope"></i>
+          <h3> 문의처</h3>
+          <p>seu.bti@gmail.com</p>
+        </div>
+
+        <div class="col-md-4 feature">
+          <i class="fa-solid fa-paw"></i>
+          <h3>해치 </h3>
+          <a href="https://www.seoul.go.kr/seoul/symbol.do" style="color: #9b6c36;
+          text-decoration: underline;"target="_blank">서울의 상징 해치 보러가기</a>
+        </div>
+
+        <div class="col-md-4 feature">
+          <i class="fa-solid fa-database"></i>
+          <h3>컨텐츠 </h3>
+          <a href="https://data.seoul.go.kr/" style="color: #9b6c36;
+          text-decoration: underline;"target="_blank">열린데이터광장 바로가기</a>
+        </div>
+
+      </div>
+    </div>
+
+    </body>
+    </html>

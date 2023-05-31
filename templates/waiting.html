@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com">
+  <meta name="author" content="Akash Bhadange">
+  <title>SEU-BTI</title>
+
+  <!-- Bootstrap -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/style2.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/themify-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/dosis-font.css') }}" rel='stylesheet' type='text/css'>
+    </head>
+    <body class="pinkcir" >
+          <div class="hachidance">
+            <img src="{{ url_for('static', filename= 'img/dance1.png') }}" id="firstImage" alt="First Image">
+            <img src="{{ url_for('static', filename= 'img/dance.png') }}" id="secondImage" alt="두 번째 이미지">
+          </div>
+        </div>
+        <div>
+          <div id="countContainer"></div>
+      </div>
+        <div>
+            <div id="textContainer"></div>
+        </div>
+        
+        <script src="{{ url_for('static', filename= 'js/hachidance.js') }}"></script>
+    </body>
+</html>
+

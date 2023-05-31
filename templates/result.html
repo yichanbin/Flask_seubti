@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com">
+  <meta name="author" content="Akash Bhadange">
+  <title>SEU-BTI</title>
+
+  <!-- Bootstrap -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/style2.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename= 'css/themify-icons.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+    <body>
+        <nav class="navbar bg-body-tertiary navbacolor">
+          <div class="container-fluid leftzero logo navtext">
+                <img src="{{ url_for('static', filename= 'img/logo.png') }}" alt="로고" class="d-inline-block align-text-top">
+                <span>SEU-BTI: 나의 특성에 맞는 서울 콘텐츠</span>
+            </div>
+          </nav>
+      <div class="container-fluid">
+        <!-- Start: Header -->
+        <div class="row hero-header centered" id="home">
+          <div class="resulttext">
+            <img src="{{ url_for('static', filename=imagename) }}" class=" centered " >
+            <h1>{{name}} </h1>
+            <div style="width: 90%" class="explanbox">
+              <h1 class="mainh1" style="text-align: center;">{{explain1}}</h1>
+              <br>
+              <h3 style="text-align: center;">{{explain2|safe}}</h4>
+              <h3 class="exp3" style="text-align: center;"><i><b>{{explain3}}</b></i></h3>
+            </div>
+          </div>
+        </div>
+        <!-- End: Header -->
+      </div>
+
+
+    <!-- Testmonial Section 1-->
+    <section id="testmonial" class="section">
+      <div class="container text-center">
+      <h4 class="section-title mb-4">이 해치에 맞는 서울의 컨텐츠!</h4>
+      <p class="mb-5 pb-4">서울시에서 제공하는 교육서비스, 축제/행사와 더불어<br>마음에 쏙! 드는 다양한 장소를 추천해 드릴게요!</p>
+      <h4>화살표를 클릭하면 옆으로 넘어갈 수 있습니다! 자세한 정보를 보고 싶으시면, 카드를 클릭해 주세요!</h4>
+      
+        <div id="slider">
+          {% set search_url = base_url ~ List[0][0] %}
+          <div class="card-slider in-view" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[0][0]|safe}}</h1>
+                    <h2>출처: {{List[0][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[1][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[1][0]|safe}}</h1>
+                    <h2>출처: {{List[1][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[2][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[2][0]|safe}}</h1>
+                    <h2>출처: {{List[2][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[3][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[3][0]|safe}}</h1>
+                    <h2>출처: {{List[3][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[4][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[4][0]|safe}}</h1>
+                    <h2>출처: {{List[4][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[5][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[5][0]|safe}}</h1>
+                    <h2>출처: {{List[5][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[6][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[6][0]|safe}}</h1>
+                    <h2>출처: {{List[6][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[7][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[7][0]|safe}}</h1>
+                    <h2>출처: {{List[7][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[8][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[8][0]|safe}}</h1>
+                    <h2>출처: {{List[8][1]|safe}}</h2>
+            </div>
+          </div>
+          {% set search_url = base_url ~ List[9][0] %}
+          <div class="card-slider hidden-right" onclick="redirectToLink('{{search_url}}')">
+            <div class="card-body">
+                    <h1 class="title">{{List[9][0]|safe}}</h1>
+                    <h2>출처: {{List[9][1]|safe}}</h2>
+            </div>
+          </div>
+          <div class="arrow-slider left" onclick="slideLeft()">&lt;</div>
+          <div class="arrow-slider right" onclick="slideRight()">&gt;</div>
+        </div>
+        <div class="dot-slider-container">
+            <span class="dot-slider active"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+            <span class="dot-slider"></span>
+        </div>
+      <form method="POST" action="/result">
+        <div class="testnextpage centered">
+          <button type="submit" name="button" class="btn btn-next btn-green centered" value="AdditionalList">추천 리스트 전체 보기 &nbsp;<span class="ti-arrow-right"></span>
+        </div>
+      </form>
+    </div>
+    </section>
+    <!-- End of testmonial section1 -->
+
+    
+    
+    <form method="POST" action="/result" class="centered">
+      <div class="testnextpage centered">
+        <button type="submit" name="button" class="btn btn-lg btn-brown" value="Allhachi"> 모든 해치 보기 
+      </div>
+    </form>
+
+
+
+      <div class="container">
+        <!-- Start: Desc -->
+        <div class="row me-row content-ct">
+          <hr>
+          <div class="tit">
+            <h2 class="row-title">SEU-BTI</h2><br>
+          </div>
+
+          <div class="col-md-4 feature">
+            <i class="fa-solid fa-envelope"></i>
+            <h3> 문의처</h3>
+            <p>seu.bti@gmail.com</p>
+          </div>
+
+          <div class="col-md-4 feature">
+            <i class="fa-solid fa-paw"></i>
+            <h3>해치 </h3>
+            <a href="https://www.seoul.go.kr/seoul/symbol.do" style="color: #9b6c36;
+            text-decoration: underline;"target="_blank">서울의 상징 해치 보러가기</a>
+          </div>
+
+          <div class="col-md-4 feature">
+            <i class="fa-solid fa-database"></i>
+            <h3>컨텐츠 </h3>
+            <a href="https://data.seoul.go.kr/" style="color: #9b6c36;
+            text-decoration: underline;"target="_blank">열린데이터광장 바로가기</a>
+          </div>
+
+        </div>
+      </div>
+      <!-- End: Desc -->
+    <script src="{{ url_for('static', filename='js/slidd.js') }}"></script>
+    </body>
+</html>
