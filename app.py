@@ -68,6 +68,8 @@ def result():
     global style
     global All_Recommand_List
     All_Recommand_List =set_list()
+    print(style)
+    print(len(All_Recommand_List))
     Random_Recommand_List=random.sample(All_Recommand_List, 10)
     Result_type = next((item for item in Result_List if item['style'] == style), None)
     if request.method == 'POST':
@@ -110,6 +112,7 @@ def set_df():
     Dataframe_List.append(getDF.FutureHeritage())
     Dataframe_List.append(getDF.CulturalEvent())
     Dataframe_List.append(getDF.PublicEducationalServices())
+    print(len(Dataframe_List))
     return ''
 
 def set_list():
