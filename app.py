@@ -5,10 +5,10 @@ import string
 from func import INIT,getdf,RecommandList,decimal_to_binary
 import threading
 
-questions, keyword, session['total'], style, num,Result_List, Dataframe_List=INIT()
+questions, keyword, total, style, num,Result_List, Dataframe_List=INIT()
 app = Flask(__name__)
 app.secret_key = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(10))
-
+session['total']=total
 
 @app.route('/')
 def home():
@@ -93,7 +93,8 @@ def AdditionalList():
 def Allhachi():
     global style
     if request.method == 'POST':
-        session['card_value'] = int(request.form.get('card_value'))
+        card_value= int(request.form.get('card_value'))
+        session['card_value'] =card_value
         style=decimal_to_binary(session['card_value'])
         session.pop('card_value', None)
         return redirect(url_for("result"))
