@@ -30,7 +30,7 @@ def page1():
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
     data_str = session.get('total')
-    total = list(map(int, data_str.split(',')))
+    total = list(map(float, data_str.split(',')))
     if request.method  == 'POST':
         for i in range(5,10):
             session['n']=request.form.get(str(i),type=float)
@@ -46,7 +46,7 @@ def page2():
 @app.route('/page3', methods=['GET', 'POST'])
 def page3():
     data_str = session.get('total')
-    total = list(map(int, data_str.split(',')))
+    total = list(map(float, data_str.split(',')))
     if request.method  == 'POST':
         for i in range(10,15):
             session['n']=request.form.get(str(i),type=float)
@@ -62,7 +62,7 @@ def page3():
 @app.route('/page4', methods=['GET', 'POST'])
 def page4():
     data_str = session.get('total')
-    total = list(map(int, data_str.split(',')))
+    total = list(map(float, data_str.split(',')))
     if request.method  == 'POST':
         for i in range(15,20):
             session['n']=request.form.get(str(i),type=float)
