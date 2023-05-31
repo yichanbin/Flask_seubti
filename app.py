@@ -21,35 +21,38 @@ def page1():
             session['n']=request.form.get(str(i),type=float)
             total[keyword[i]]+=float(session['n'])
         session.pop('n', None)
-        return redirect(url_for("page2",total=total))
+        session['total'] = ','.join(map(str, total))
+        return redirect(url_for("page2"))
     
     else:
         return render_template('page1.html',questions=questions)
 
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
-    session['total']= request.args.get('total')
-    total=session['total']
+    data_str = session.get('total')
+    total = list(map(int, data_str.split(',')))
     if request.method  == 'POST':
         for i in range(5,10):
             session['n']=request.form.get(str(i),type=float)
             total[keyword[i]]+=float(session['n'])
         session.pop('total', None)
+        session['total'] = ','.join(map(str, total))
         session.pop('n', None)
-        return redirect(url_for("page3",total=total))
+        return redirect(url_for("page3"))
     
     else:
         return render_template('page2.html',questions=questions)
 
 @app.route('/page3', methods=['GET', 'POST'])
 def page3():
-    session['total']= request.args.get('total')
-    total=session['total']
+    data_str = session.get('total')
+    total = list(map(int, data_str.split(',')))
     if request.method  == 'POST':
         for i in range(10,15):
             session['n']=request.form.get(str(i),type=float)
             total[keyword[i]]+=float(session['n'])
         session.pop('total', None)
+        session['total'] = ','.join(map(str, total))
         session.pop('n', None)
         return redirect(url_for("page4",total=total))
     
@@ -58,8 +61,8 @@ def page3():
 
 @app.route('/page4', methods=['GET', 'POST'])
 def page4():
-    session['total']= request.args.get('total')
-    total=session['total']
+    data_str = session.get('total')
+    total = list(map(int, data_str.split(',')))
     if request.method  == 'POST':
         for i in range(15,20):
             session['n']=request.form.get(str(i),type=float)
