@@ -21,7 +21,7 @@ def page1():
             session['total']=request.form.get(str(i),type=float)
             total[keyword[i]]+=session['total']
         session.pop('total', None)
-        return redirect(url_for("page2"),total=total)
+        return redirect(url_for("page2",total=total))
     
     else:
         return render_template('page1.html',questions=questions)
@@ -36,7 +36,7 @@ def page2():
             total[keyword[i]]+=session['n']
         session.pop('total', None)
         session.pop('n', None)
-        return redirect(url_for("page3"),total=total)
+        return redirect(url_for("page3",total=total))
     
     else:
         return render_template('page2.html',questions=questions)
@@ -51,7 +51,7 @@ def page3():
             total[keyword[i]]+=session['n']
         session.pop('total', None)
         session.pop('n', None)
-        return redirect(url_for("page4"),total=total)
+        return redirect(url_for("page4",total=total))
     
     else:
         return render_template('page3.html',questions=questions)
