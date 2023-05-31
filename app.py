@@ -95,6 +95,7 @@ def Allhachi():
     if request.method == 'POST':
         session['card_value'] = int(request.form.get('card_value'))
         style=decimal_to_binary(session['card_value'])
+        session.pop('card_value', None)
         return redirect(url_for("result"))
     else:
         return render_template('Allhachi.html',list=Result_List)
