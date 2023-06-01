@@ -10,7 +10,6 @@ def INIT():
     questions=[]
     keyword=[]
     total=[0.0,0.0,0.0,0.0]
-    style=[0,0,0,0]
     num=[7,5,3,5]
     Dataframe_List=[]
     Result_List=[]
@@ -20,7 +19,7 @@ def INIT():
 
     for i in cursor2:
         Result_List.append(i)
-    return questions, keyword, style, num,Result_List,Dataframe_List
+    return questions, keyword,  num,Result_List,Dataframe_List
 
 
 def RecommandList(df,keywordlist):

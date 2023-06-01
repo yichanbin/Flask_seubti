@@ -5,7 +5,7 @@ import string
 from func import INIT,getdf,RecommandList,decimal_to_binary
 import threading
 
-questions, keyword, style, num,Result_List, Dataframe_List=INIT()
+questions, keyword, num,Result_List, Dataframe_List=INIT()
 app = Flask(__name__)
 app.secret_key = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(10))
 
@@ -54,13 +54,14 @@ def page3():
         session.pop('total', None)
         session['total'] = ','.join(map(str, total))
         session.pop('n', None)
-        return redirect(url_for("page4",total=total))
+        return redirect(url_for("page4"))
     
     else:
         return render_template('page3.html',questions=questions)
 
 @app.route('/page4', methods=['GET', 'POST'])
 def page4():
+    style=[0,0,0,0]
     data_str = session.get('total')
     total = list(map(float, data_str.split(',')))
     if request.method  == 'POST':
@@ -71,6 +72,7 @@ def page4():
             style[i]=round(total[i]/(float(num[i]))) 
         session.pop('total', None)
         session.pop('n', None)
+        session['style'] = ','.join(map(str, style))
         return redirect(url_for("waiting"))
     else:
         return render_template('page4.html',questions=questions)
@@ -84,9 +86,9 @@ def waiting():
 @app.route('/result', methods=['GET', 'POST'])
 def result():
     global Result_type 
-    global style
-    global All_Recommand_List
-    All_Recommand_List =set_list()
+    data_str = session.get('style')
+    style = list(map(int, data_str.split(',')))
+    All_Recommand_List =set_list(style)
     print(style)
     print(len(All_Recommand_List))
     Random_Recommand_List=random.sample(All_Recommand_List, 10)
@@ -101,6 +103,9 @@ def result():
 
 @app.route('/AdditionalList',methods=['GET', 'POST'])
 def AdditionalList():
+     data_str = session.get('style')
+     style = list(map(int, data_str.split(',')))
+     All_Recommand_List =set_list(style)
      if request.method == 'POST':
          return redirect(url_for("result"))
      else:
@@ -108,12 +113,12 @@ def AdditionalList():
 
 @app.route('/Allhachi', methods=['GET', 'POST'])
 def Allhachi():
-    global style
     if request.method == 'POST':
         card_value= int(request.form.get('card_value'))
         session['card_value'] =card_value
         style=decimal_to_binary(session['card_value'])
         session.pop('card_value', None)
+        session['style'] = ','.join(map(str, style))
         return redirect(url_for("result"))
     else:
         return render_template('Allhachi.html',list=Result_List)
@@ -136,9 +141,8 @@ def set_df():
     print(len(Dataframe_List))
     return ''
 
-def set_list():
+def set_list(style):
     global Dataframe_List
-    global style
     list=[]
     for i in range(12):
         list+=RecommandList(Dataframe_List[i],style)
