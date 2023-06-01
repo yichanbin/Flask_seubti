@@ -132,6 +132,7 @@ hr {
     letter-spacing: 1px;
     flex-direction: column;
     display: flex;
+    cursor: pointer;
 }
 
 .cardlist:hover{
