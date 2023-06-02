@@ -2,12 +2,12 @@ from flask import Flask,session, render_template, redirect,request,url_for
 import random
 import threading
 import string
-from func import INIT,getdf,RecommandList,decimal_to_binary
+from func import INIT,getdf,RecommandList,decimal_to_binary,generate_secret_key
 import threading
 
 questions, keyword, num,Result_List, Dataframe_List=INIT()
 app = Flask(__name__)
-app.secret_key = ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(10))
+app.secret_key = generate_secret_key()
 
 @app.route('/')
 def home():

@@ -3,6 +3,10 @@ import requests
 import pandas as pd
 from datetime import date
 import numpy as np
+def generate_secret_key(length=16):
+    characters = string.ascii_letters + string.digits + "_-"
+    secret_key = ''.join(random.choice(characters) for _ in range(length))
+    return secret_key
 def INIT():
     cursor1 = resultlist("static/json/questions.json")
     cursor2=resultlist("static/json/type.json")
