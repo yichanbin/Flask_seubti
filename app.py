@@ -1,7 +1,7 @@
 from flask import Flask,session, render_template, redirect,request,url_for
 import random
 import threading
-from datetime import date
+import datetime 
 import string
 from func import INIT,getdf,RecommandList,decimal_to_binary,generate_secret_key
 import threading
@@ -18,7 +18,7 @@ def home():
     trapic+=1
     session_key = session.get('session_key')
     timezone = pytz.timezone('Asia/Seoul')
-    now = date.now(timezone)
+    now = datetime.now(timezone)
     current_time = now.strftime("%Y-%m-%d %H:%M:%S")
     print(trapic," ",current_time, " ",session_key , "\n\n")
     return render_template('home.html')
