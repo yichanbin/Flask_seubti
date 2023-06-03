@@ -6,15 +6,19 @@ from func import INIT,getdf,RecommandList,decimal_to_binary,generate_secret_key
 import threading
 
 questions, keyword, num,Result_List, Dataframe_List=INIT()
+trapic=0
 app = Flask(__name__)
 app.secret_key = generate_secret_key()
 
 @app.route('/')
 def home():
+    trapic+=1
+    print(trapic+"\n\n")
     return render_template('home.html')
     
 @app.route('/page1', methods=['GET', 'POST'])
 def page1():
+    
     total=[0.0,0.0,0.0,0.0]
     if request.method  == 'POST':
         for i in range(5):
@@ -25,7 +29,9 @@ def page1():
         return redirect(url_for("page2"))
     
     else:
+        print("page 1 Connection established successfully.\n")
         return render_template('page1.html',questions=questions)
+
 
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
@@ -41,6 +47,7 @@ def page2():
         return redirect(url_for("page3"))
     
     else:
+        print("page 2 Connection established successfully.\n")
         return render_template('page2.html',questions=questions)
 
 @app.route('/page3', methods=['GET', 'POST'])
@@ -57,6 +64,7 @@ def page3():
         return redirect(url_for("page4"))
     
     else:
+        print("page 3 Connection established successfully.\n")
         return render_template('page3.html',questions=questions)
 
 @app.route('/page4', methods=['GET', 'POST'])
@@ -75,6 +83,7 @@ def page4():
         session['style'] = ','.join(map(str, style))
         return redirect(url_for("waiting"))
     else:
+        print("page 4 Connection established successfully.\n")
         return render_template('page4.html',questions=questions)
 
 @app.route('/waiting')
@@ -89,8 +98,6 @@ def result():
     data_str = session.get('style')
     style = list(map(int, data_str.split(',')))
     All_Recommand_List =set_list(style)
-    print(style)
-    print(len(All_Recommand_List))
     Random_Recommand_List=random.sample(All_Recommand_List, 10)
     Result_type = next((item for item in Result_List if item['style'] == style), None)
     if request.method == 'POST':
@@ -99,6 +106,7 @@ def result():
         elif request.form['button'] == "Allhachi":
             return redirect(url_for("Allhachi"))
     else:
+        print("result Connection established successfully.\n")
         return render_template('result.html',imagename="img/"+Result_type['name']+".png",name=Result_type['name'],explain1=Result_type["explain1"],explain2=Result_type["explain2"],explain3=Result_type["explain3"],List=Random_Recommand_List, base_url = "https://www.google.com/search?q=")
 
 @app.route('/AdditionalList',methods=['GET', 'POST'])
@@ -109,6 +117,7 @@ def AdditionalList():
      if request.method == 'POST':
          return redirect(url_for("result"))
      else:
+        print("AdditionalList Connection established successfully.\n")
         return render_template('AdditionalList.html',name=Result_type['name'],count=len(All_Recommand_List),List=All_Recommand_List,base_url="https://www.google.com/search?q=")
 
 @app.route('/Allhachi', methods=['GET', 'POST'])
@@ -121,6 +130,7 @@ def Allhachi():
         session['style'] = ','.join(map(str, style))
         return redirect(url_for("result"))
     else:
+        print("Allhachi Connection established successfully.\n")
         return render_template('Allhachi.html',list=Result_List)
 
 def set_df():
@@ -138,7 +148,7 @@ def set_df():
     Dataframe_List.append(getDF.FutureHeritage())
     Dataframe_List.append(getDF.CulturalEvent())
     Dataframe_List.append(getDF.PublicEducationalServices())
-    print(len(Dataframe_List))
+    print("Data Connection established successfully.")
     return ''
 
 def set_list(style):
