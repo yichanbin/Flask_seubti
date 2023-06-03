@@ -1,9 +1,11 @@
 from flask import Flask,session, render_template, redirect,request,url_for
 import random
 import threading
+from datetime import date
 import string
 from func import INIT,getdf,RecommandList,decimal_to_binary,generate_secret_key
 import threading
+import pytz
 
 questions, keyword, num,Result_List, Dataframe_List=INIT()
 trapic=0
@@ -14,7 +16,11 @@ app.secret_key = generate_secret_key()
 def home():
     global trapic
     trapic+=1
-    print(trapic, "\n\n")
+    session_key = session.get('session_key')
+    timezone = pytz.timezone('Asia/Seoul')
+    now = date.now(timezone)
+    current_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    print(trapic," ",current_time, " ",session_key , "\n\n")
     return render_template('home.html')
     
 @app.route('/page1', methods=['GET', 'POST'])
