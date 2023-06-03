@@ -2,6 +2,7 @@ import json
 import requests
 import pandas as pd
 from datetime import date
+import string
 import numpy as np
 def generate_secret_key(length=16):
     characters = string.ascii_letters + string.digits + "_-"
