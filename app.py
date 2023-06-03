@@ -1,7 +1,7 @@
 from flask import Flask,session, render_template, redirect,request,url_for
 import random
 import threading
-import datetime 
+from datetime import datetime
 import string
 from func import INIT,getdf,RecommandList,decimal_to_binary,generate_secret_key
 import threading
