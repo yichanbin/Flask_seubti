@@ -12,6 +12,7 @@ app.secret_key = generate_secret_key()
 
 @app.route('/')
 def home():
+    global trapic
     trapic+=1
     print(trapic+"\n\n")
     return render_template('home.html')
